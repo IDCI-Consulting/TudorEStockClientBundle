@@ -178,8 +178,8 @@ class TudorEStockApiClient
             ->setDefined('localizedUrls')->setAllowedTypes('localizedUrls', ['array'])
             ->setRequired('storePickupAvailable')->setAllowedTypes('storePickupAvailable', ['bool'])
             ->setRequired('onlinePurchaseEnabled')->setAllowedTypes('onlinePurchaseEnabled', ['bool'])
-            ->setDefined('homeDeliveryTiming')->setAllowedTypes('homeDeliveryTiming', ['int'])
-            ->setDefined('storePickupTiming')->setAllowedTypes('storePickupTiming', ['int'])
+            ->setDefined('homeDeliveryTiming')->setAllowedTypes('homeDeliveryTiming', ['int', 'null'])
+            ->setDefined('storePickupTiming')->setAllowedTypes('storePickupTiming', ['int', 'null'])
         ;
 
         $body = [];
