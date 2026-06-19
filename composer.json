@@ -11,8 +11,12 @@
     "license": "CECILL-C",
     "require": {
         "php": "^8.1",
+        "symfony/cache": "^6.0",
         "symfony/dependency-injection": "^6.0",
-        "symfony/http-kernel": "^6.0"
+        "symfony/http-kernel": "^6.0",
+        "symfony/serializer-pack": "^1.0",
+        "eightpoints/guzzle-bundle": "^8.0",
+        "psr/log": "^1|^2|^3"
     },
     "autoload": {
         "psr-4": {

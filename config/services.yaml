@@ -6,3 +6,11 @@ services:
 
     IDCI\Bundle\TudorEStockClientBundle\:
         resource: '../src/*'
+
+    IDCI\Bundle\TudorEStockClientBundle\Client\TudorEStockApiClient:
+        arguments:
+            $logger: '@logger'
+            $clientId: '%idci_tudor_estock_client.client_id%'
+            $clientSecret: '%idci_tudor_estock_client.client_secret%'
+            $scope: '%idci_tudor_estock_client.scope%'
+            $issuer: '%idci_tudor_estock_client.issuer%'
