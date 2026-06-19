@@ -193,10 +193,17 @@ class TudorEStockApiClient
                     'Authorization' => sprintf('Bearer %s', $this->getAccessToken()['access_token']),
                     'Content-Type' => 'application/json',
                 ],
-                'body' => $body,
+                'body' => json_encode($body),
             ]);
 
-            return $this->serializer->deserialize((string) $response->getBody(), sprintf('%s[]', StocksBatchResponse::class), 'json');
+            $lines = array_filter(explode("\n", trim((string) $response->getBody())));
+
+            $stockBatchResponses = [];
+            foreach ($lines as $line) {
+                $stockBatchResponses[] = $this->serializer->deserialize($line, StocksBatchResponse::class, 'json');
+            }
+
+            return $stockBatchResponses;
         } catch (RequestException $e) {
             $this->logRequestException($e, $body);
         }
