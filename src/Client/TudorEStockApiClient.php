@@ -241,7 +241,6 @@ class TudorEStockApiClient
 
             return $this->serializer->deserialize((string) $response->getBody(), Health::class, 'json');
         } catch (RequestException $e) {
-            dd($e);
             $this->logRequestException($e);
         }
 
